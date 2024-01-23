@@ -697,7 +697,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -726,6 +725,9 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    embedding: Attribute.Relation<'plugin::users-permissions.user', 'morphOne'>;
+    firstname: Attribute.String & Attribute.Required;
+    lastname: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -740,7 +742,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
-    embedding: Attribute.Relation<'plugin::users-permissions.user', 'morphOne'>;
   };
 }
 
