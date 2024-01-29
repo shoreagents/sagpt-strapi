@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "logs",
+  "info": {
+    "singularName": "log",
+    "pluralName": "logs",
+    "displayName": "Log",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "logname": {
+      "type": "text"
+    },
+    "authorname": {
+      "type": "string"
+    },
+    "embedding": {
+      "type": "relation",
+      "relation": "morphOne",
+      "target": "plugin::open-ai-embeddings.embedding",
+      "morphBy": "related",
+      "configurable": false
+    }
+  }
+}

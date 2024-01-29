@@ -745,6 +745,189 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAuthorAuthor extends Schema.CollectionType {
+  collectionName: 'authors';
+  info: {
+    singularName: 'author';
+    pluralName: 'authors';
+    displayName: 'Author';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    authorname: Attribute.String;
+    bio: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::author.author',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::author.author',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    embedding: Attribute.Relation<'api::author.author', 'morphOne'>;
+  };
+}
+
+export interface ApiCustomerObjectiveCustomerObjective
+  extends Schema.CollectionType {
+  collectionName: 'customer_objectives';
+  info: {
+    singularName: 'customer-objective';
+    pluralName: 'customer-objectives';
+    displayName: 'Customer Objective';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    objectivename: Attribute.String;
+    embedding: Attribute.Relation<
+      'api::customer-objective.customer-objective',
+      'morphOne'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::customer-objective.customer-objective',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::customer-objective.customer-objective',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLogLog extends Schema.CollectionType {
+  collectionName: 'logs';
+  info: {
+    singularName: 'log';
+    pluralName: 'logs';
+    displayName: 'Log';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    logname: Attribute.Text;
+    authorname: Attribute.String;
+    embedding: Attribute.Relation<'api::log.log', 'morphOne'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::log.log', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::log.log', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPerspectivePerspective extends Schema.CollectionType {
+  collectionName: 'perspectives';
+  info: {
+    singularName: 'perspective';
+    pluralName: 'perspectives';
+    displayName: 'Perspective';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    perspectivename: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::perspective.perspective',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::perspective.perspective',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    embedding: Attribute.Relation<'api::perspective.perspective', 'morphOne'>;
+  };
+}
+
+export interface ApiTargetMarketTargetMarket extends Schema.CollectionType {
+  collectionName: 'target_markets';
+  info: {
+    singularName: 'target-market';
+    pluralName: 'target-markets';
+    displayName: 'Target Market';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    targetname: Attribute.String;
+    embedding: Attribute.Relation<
+      'api::target-market.target-market',
+      'morphOne'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::target-market.target-market',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::target-market.target-market',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiToneTone extends Schema.CollectionType {
+  collectionName: 'tones';
+  info: {
+    singularName: 'tone';
+    pluralName: 'tones';
+    displayName: 'Tone';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    embedding: Attribute.Relation<'api::tone.tone', 'morphOne'>;
+    tonename: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::tone.tone', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::tone.tone', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -762,6 +945,12 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::author.author': ApiAuthorAuthor;
+      'api::customer-objective.customer-objective': ApiCustomerObjectiveCustomerObjective;
+      'api::log.log': ApiLogLog;
+      'api::perspective.perspective': ApiPerspectivePerspective;
+      'api::target-market.target-market': ApiTargetMarketTargetMarket;
+      'api::tone.tone': ApiToneTone;
     }
   }
 }

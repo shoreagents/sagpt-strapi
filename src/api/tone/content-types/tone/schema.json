@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tones",
+  "info": {
+    "singularName": "tone",
+    "pluralName": "tones",
+    "displayName": "Tone",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "embedding": {
+      "type": "relation",
+      "relation": "morphOne",
+      "target": "plugin::open-ai-embeddings.embedding",
+      "morphBy": "related",
+      "configurable": false
+    },
+    "tonename": {
+      "type": "string"
+    }
+  }
+}

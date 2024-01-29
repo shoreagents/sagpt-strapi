@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "perspectives",
+  "info": {
+    "singularName": "perspective",
+    "pluralName": "perspectives",
+    "displayName": "Perspective"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "perspectivename": {
+      "type": "string"
+    }
+  }
+}
