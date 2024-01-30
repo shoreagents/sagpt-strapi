@@ -79,6 +79,9 @@
     "lastname": {
       "type": "string",
       "required": true
+    },
+    "bio": {
+      "type": "text"
     }
   }
 }
