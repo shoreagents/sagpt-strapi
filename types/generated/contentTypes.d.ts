@@ -753,17 +753,12 @@ export interface ApiCustomerObjectiveCustomerObjective
     singularName: 'customer-objective';
     pluralName: 'customer-objectives';
     displayName: 'Customer Objective';
-    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     objectivename: Attribute.String;
-    embedding: Attribute.Relation<
-      'api::customer-objective.customer-objective',
-      'morphOne'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -779,6 +774,10 @@ export interface ApiCustomerObjectiveCustomerObjective
       'admin::user'
     > &
       Attribute.Private;
+    embedding: Attribute.Relation<
+      'api::customer-objective.customer-objective',
+      'morphOne'
+    >;
   };
 }
 
@@ -879,13 +878,11 @@ export interface ApiToneTone extends Schema.CollectionType {
     singularName: 'tone';
     pluralName: 'tones';
     displayName: 'Tone';
-    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    embedding: Attribute.Relation<'api::tone.tone', 'morphOne'>;
     tonename: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -894,6 +891,7 @@ export interface ApiToneTone extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::tone.tone', 'oneToOne', 'admin::user'> &
       Attribute.Private;
+    embedding: Attribute.Relation<'api::tone.tone', 'morphOne'>;
   };
 }
 

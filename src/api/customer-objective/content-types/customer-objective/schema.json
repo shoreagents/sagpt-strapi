@@ -4,8 +4,7 @@
   "info": {
     "singularName": "customer-objective",
     "pluralName": "customer-objectives",
-    "displayName": "Customer Objective",
-    "description": ""
+    "displayName": "Customer Objective"
   },
   "options": {
     "draftAndPublish": true
@@ -14,13 +13,6 @@
   "attributes": {
     "objectivename": {
       "type": "string"
-    },
-    "embedding": {
-      "type": "relation",
-      "relation": "morphOne",
-      "target": "plugin::open-ai-embeddings.embedding",
-      "morphBy": "related",
-      "configurable": false
     }
   }
 }
